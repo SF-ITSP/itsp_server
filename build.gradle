@@ -1,0 +1,19 @@
+// Apply the java plugin to add support for Java
+apply plugin: 'war'
+
+repositories {
+    flatDir {
+        dirs "libs"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')  
+}
+
+war{     
+    from("$projectDir/src") {  
+        include "*.xml"  
+        into("WEB-INF/classes")  
+    }     
+}  
