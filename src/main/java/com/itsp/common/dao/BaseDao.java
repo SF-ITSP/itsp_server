@@ -16,8 +16,8 @@ public class BaseDao<T> extends HibernateDaoSupport {
 		if (this.entityClass == null) {
 			String clsName = super.getClass().getSimpleName();
 			throw new RuntimeException(super.getClass().getCanonicalName()
-					+ "Î´¶¨Òå·ºÐÍ! ¼Ì³ÐÓÚ:" + BaseDao.class.getCanonicalName()
-					+ "µÄÀà¶¼±ØÐèÉùÃ÷Ëù²Ù×÷ÊµÌåµÄ·ºÐÍ, Èç:\npublic class " + clsName
+					+ "Î´ï¿½ï¿½ï¿½å·ºï¿½ï¿½! ï¿½Ì³ï¿½ï¿½ï¿½:" + BaseDao.class.getCanonicalName()
+					+ "ï¿½ï¿½ï¿½à¶¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ä·ï¿½ï¿½ï¿½, ï¿½ï¿½:\npublic class " + clsName
 					+ " extends " + BaseDao.class.getSimpleName() + "<"
 					+ clsName.substring(0, clsName.length() - 3)
 					+ "> implements I" + clsName + "{\n\t...\n}");
@@ -59,12 +59,13 @@ public class BaseDao<T> extends HibernateDaoSupport {
 	}
 
 	public List<T> findByCriteria(DetachedCriteria criteria) {
-		return this.getHibernateTemplate().findByCriteria(criteria);
+		return (List<T>) this.getHibernateTemplate().findByCriteria(criteria);
 	}
 
 	public List<T> findByCriteria(DetachedCriteria criteria, int firstResult,
 			int maxResults) {
-		return this.getHibernateTemplate().findByCriteria(criteria,
+		
+		return (List<T>) this.getHibernateTemplate().findByCriteria(criteria,
 				firstResult, maxResults);
 	}
 
