@@ -2,13 +2,13 @@ package com.itsp.supplier.entity;
 
 public class Task {
 	private String address;
-	
+
 	private String operation;
-	
+
 	private String arriveTime;
-	
+
 	private String latestDepartureTime;
-	
+
 	private int waitingTime;
 
 	public String getAddress() {
