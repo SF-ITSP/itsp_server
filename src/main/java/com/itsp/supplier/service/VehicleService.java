@@ -13,7 +13,7 @@ public class VehicleService {
 	@Autowired
 	private VehicleDao vehicleDao;
 	
-	public List<Vehicle> getTasks() {
+	public List<Vehicle> getVehicles() {
 		return vehicleDao.getVehicles();
 	}
 	

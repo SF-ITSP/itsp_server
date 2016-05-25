@@ -17,8 +17,9 @@ public class VehicleController {
 	private VehicleService vehicleService;
 	
 	@RequestMapping("/vehicle")
-	public List<Vehicle> getTasks() {
-		List<Vehicle> vehicleList = vehicleService.getTasks();
+	public List<Vehicle> getVehicles() {
+		List<Vehicle> vehicleList = vehicleService.getVehicles();
 		return vehicleList;
 	}
+	
 }
