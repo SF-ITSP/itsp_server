@@ -12,7 +12,7 @@ import com.itsp.supplier.entity.TaskData;
 public class TaskService {
 	@Autowired
 	private TaskDao taskDao;
-	
+
 	public List<TaskData> getTasks() {
 		return taskDao.getTask();
 	}

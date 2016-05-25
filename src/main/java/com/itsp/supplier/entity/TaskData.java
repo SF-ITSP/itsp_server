@@ -42,11 +42,11 @@ public class TaskData {
 	}
 
 	public String getArriveTimeString() {
-		return DateUtil.string(this.arriveTime, DateUtil.YYYY_MM_DD_HH_MM_SS);
+		return DateUtil.string(this.arriveTime, DateUtil.HH_MM);
 	}
 
 	public String getLatestDepartureTimeString() {
-		return DateUtil.string(this.arriveTime, DateUtil.YYYY_MM_DD_HH_MM_SS);
+		return DateUtil.string(this.arriveTime, DateUtil.HH_MM);
 	}
 
 	public int getId() {
