@@ -12,7 +12,7 @@ import com.itsp.common.util.DateUtil;
 
 @Entity
 @Table(name = "TT_ITSP_TASK")
-public class TaskData {
+public class TaskDataSource {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")

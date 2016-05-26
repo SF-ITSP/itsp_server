@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itsp.supplier.entity.Task;
-import com.itsp.supplier.entity.TaskData;
+import com.itsp.supplier.entity.TaskDataSource;
 import com.itsp.supplier.service.TaskService;
 
 @Component
@@ -20,16 +20,16 @@ public class TaskController {
 
 	@RequestMapping("/tasks")
 	public List<Task> getTasks() {
-		List<TaskData> tasks = taskService.getTasks();
+		List<TaskDataSource> taskDataSources = taskService.getTasks();
 		List<Task> taskList = new ArrayList<Task>();
 
-		for (int i = 0; i < tasks.size(); i++) {
+		for (TaskDataSource taskDataSource : taskDataSources) {
 			Task task = new Task();
-			task.setAddress(tasks.get(i).getAddress());
-			task.setOperation(tasks.get(i).getOperationString());
-			task.setArriveTime(tasks.get(i).getArriveTimeString());
-			task.setLatestDepartureTime(tasks.get(i).getLatestDepartureTimeString());
-			task.setWaitingTime(tasks.get(i).getWaitingTime());
+			task.setAddress(taskDataSource.getAddress());
+			task.setOperation(taskDataSource.getOperationString());
+			task.setArriveTime(taskDataSource.getArriveTimeString());
+			task.setLatestDepartureTime(taskDataSource.getLatestDepartureTimeString());
+			task.setWaitingTime(taskDataSource.getWaitingTime());
 
 			taskList.add(task);
 		}

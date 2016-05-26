@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.itsp.supplier.dao.TaskDao;
-import com.itsp.supplier.entity.TaskData;
+import com.itsp.supplier.entity.TaskDataSource;
 
 @Component
 public class TaskService {
 	@Autowired
 	private TaskDao taskDao;
 
-	public List<TaskData> getTasks() {
-		return taskDao.getTask();
+	public List<TaskDataSource> getTasks() {
+		return taskDao.getTasks();
 	}
 }
