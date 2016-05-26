@@ -14,7 +14,7 @@ public class Requirement {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private Integer id;
+	private long id;
 
 	@Column(name = "start_date")
 	private Date startDate;
@@ -22,11 +22,17 @@ public class Requirement {
 	@Column(name = "end_date")
 	private Date endDate;
 
-	public Integer getId() {
+	@Column(name = "carrier_id")
+	private long carrierId;
+
+	@Column(name = "status")
+	private int status;
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -45,4 +51,21 @@ public class Requirement {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	public long getCarrierId() {
+		return carrierId;
+	}
+
+	public void setCarrierId(long carrierId) {
+		this.carrierId = carrierId;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 }

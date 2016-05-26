@@ -38,7 +38,7 @@ public class RequirementTest extends ItspJUnit4ClassRunner {
 			}
 		});
 
-		List<Requirement> requirements = requirementController.getRequirements();
+		List<Requirement> requirements = requirementController.getById(null);
 		
 		Assert.assertEquals(selectCount.intValue(), requirements.size());
 	}

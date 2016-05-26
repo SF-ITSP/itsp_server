@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import com.itsp.supplier.dao.RequirementDao;
@@ -15,8 +17,16 @@ public class RequirementService {
 	@Resource
 	private RequirementDao requirementDao;
 
-	public List<Requirement> getRequirements() {
-		return requirementDao.getHibernateTemplate().findByExample(new Requirement());
+	public List<Requirement> getByCarrierId(long carrierId) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Requirement.class);
+		criteria.add(Restrictions.eq("carrierId", carrierId));
+		return requirementDao.findByCriteria(criteria);
+	}
+
+	public List<Requirement> getByCarrierIdAndStatus(long carrierId, int status) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Requirement.class);
+		criteria.add(Restrictions.eq("carrierId", carrierId)).add(Restrictions.eq("status", status));
+		return requirementDao.findByCriteria(criteria);
 	}
 
 }
