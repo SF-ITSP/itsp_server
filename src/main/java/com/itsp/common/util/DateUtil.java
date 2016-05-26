@@ -1,6 +1,5 @@
 package com.itsp.common.util;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,8 +23,8 @@ public class DateUtil {
 		return sdf.format(date);
 	}
 
-	public static Date autoFormat(String s) {
-		Date date = null;
+	public static Date date(String s) {
+		Date date = new Date();
 		if (s != null && !"".equals(s)) {
 			String t = s.replaceAll("[^0-9]", "");
 			while (t.length() < YYYYMMDDHHMMSS.length()) {
@@ -34,8 +33,7 @@ public class DateUtil {
 			SimpleDateFormat sdf = new SimpleDateFormat(YYYYMMDDHHMMSS);
 			try {
 				date = sdf.parse(t);
-			} catch (ParseException e) {
-				e.printStackTrace();
+			} catch (Exception e) {				
 			}
 		}
 		return date;
