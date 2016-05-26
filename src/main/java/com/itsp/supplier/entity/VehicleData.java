@@ -17,12 +17,6 @@ public class VehicleData {
 	@Column(name = "vehicle_number")
 	private String vehicleNumber;
 	
-	@Column(name = "vehicle_model")
-	private int vehicleModel;
-
-	@Column(name = "capacity_weight")
-	private int capacityWeight;
-	
 	public int getId() {
 		return id;
 	}
@@ -39,23 +33,4 @@ public class VehicleData {
 		this.vehicleNumber = vehicleNumber;
 	}
 
-	public int getVehicleModel() {
-		return vehicleModel;
-	}
-
-	public void setVehicleModel(int vehicleModel) {
-		this.vehicleModel = vehicleModel;
-	}
-
-	public int getCapacityWeight() {
-		return capacityWeight;
-	}
-
-	public void setCapacityWeight(int capacityWeight) {
-		this.capacityWeight = capacityWeight;
-	}
-	
-	public String getVehicleModelName(){
-		return this.vehicleModel==0?"¿‰≤ÿ≥µ":"∆‰À˚";
-	}
 }

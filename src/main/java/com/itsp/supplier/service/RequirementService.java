@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import com.itsp.supplier.dao.RequirementDao;
-import com.itsp.supplier.entity.Requirement;
+import com.itsp.supplier.entity.RequirementData;
 
 @Component
 public class RequirementService {
@@ -15,8 +15,8 @@ public class RequirementService {
 	@Resource
 	private RequirementDao requirementDao;
 
-	public List<Requirement> getRequirements() {
-		return requirementDao.getHibernateTemplate().findByExample(new Requirement());
+	public List<RequirementData> getRequirements() {
+		return requirementDao.getRequirements();
 	}
 
 }

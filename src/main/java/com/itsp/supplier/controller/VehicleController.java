@@ -26,8 +26,6 @@ public class VehicleController {
 		for (VehicleData vehicle : vehicleList) {
 			Vehicle newVehicle = new Vehicle();
 			newVehicle.setVehicleNumber(vehicle.getVehicleNumber());
-			newVehicle.setVehicleModel(vehicle.getVehicleModelName());
-			newVehicle.setCapacityWeight(vehicle.getCapacityWeight());
 			vehicles.add(newVehicle);
 		}
 		return vehicles;
