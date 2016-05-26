@@ -23,13 +23,13 @@ public class VehicleController {
 		List<VehicleData> vehicleList = vehicleService.geVehicles();
 		List<Vehicle> vehicles = new ArrayList<Vehicle>();
 
-		for (int i = 0; i < vehicleList.size(); i++) {
-			Vehicle vehicle = new Vehicle();
-			vehicle.setVehicleNumber(vehicleList.get(i).getVehicleNumber());
-
-			vehicles.add(vehicle);
+		for (VehicleData vehicle : vehicleList) {
+			Vehicle newVehicle = new Vehicle();
+			newVehicle.setVehicleNumber(vehicle.getVehicleNumber());
+			newVehicle.setVehicleModel(vehicle.getVehicleModelName());
+			newVehicle.setCapacityWeight(vehicle.getCapacityWeight());
+			vehicles.add(newVehicle);
 		}
-
 		return vehicles;
 	}
 }
