@@ -14,7 +14,7 @@ public class RequirementData {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private Integer id;
+	private long id;
 
 	@Column(name = "start_date")
 	private Date startDate;
@@ -27,12 +27,18 @@ public class RequirementData {
 
 	@Column(name = "capacity_weight")
 	private int capacityWeight;
+	
+	@Column(name = "carrier_id")
+	private long carrierId;
 
-	public Integer getId() {
+	@Column(name = "status")
+	private int status;
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -69,7 +75,7 @@ public class RequirementData {
 	}
 
 	public String getVehicleModelName() {
-		return this.vehicleModel==0?"Àä²Ø³µ":"ÆäËû";
+		return this.vehicleModel==0?"ï¿½ï¿½Ø³ï¿½":"ï¿½ï¿½ï¿½ï¿½";
 	}
 
 }
