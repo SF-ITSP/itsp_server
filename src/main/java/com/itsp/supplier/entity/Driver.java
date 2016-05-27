@@ -2,12 +2,10 @@ package com.itsp.supplier.entity;
 
 public class Driver {
 	
-	private String drivinglicenseType;
+	private String drivingLicenseType;
 	private int age;
 	private String name;
-	
 	private long carrierId;
-	
 	private int drivingExperience;
 	
 	public int getAge() {
@@ -28,11 +26,11 @@ public class Driver {
 	public void setCarrierId(long carrierId) {
 		this.carrierId = carrierId;
 	}
-	public String getDrivinglicenseType() {
-		return drivinglicenseType;
+	public String getDrivingLicenseType() {
+		return drivingLicenseType;
 	}
-	public void setDrivinglicenseType(String drivinglicenseType) {
-		this.drivinglicenseType = drivinglicenseType;
+	public void setDrivingLicenseType(String drivingLicenseType) {
+		this.drivingLicenseType = drivingLicenseType;
 	}
 	public int getDrivingExperience() {
 		return drivingExperience;

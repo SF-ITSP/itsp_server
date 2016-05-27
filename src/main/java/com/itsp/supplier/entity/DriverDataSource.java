@@ -17,7 +17,7 @@ public class DriverDataSource {
 	private long id;
 	
 	@Column(name = "driving_license_Type")
-	private String drivinglicenseType;
+	private String drivingLicenseType;
 	
 	@Column(name = "age")
 	private int age;
@@ -55,11 +55,11 @@ public class DriverDataSource {
 	public void setCarrierId(long carrierId) {
 		this.carrierId = carrierId;
 	}
-	public String getDrivinglicenseType() {
-		return drivinglicenseType;
+	public String getDrivingLicenseType() {
+		return drivingLicenseType;
 	}
-	public void setDrivinglicenseType(String drivinglicenseType) {
-		this.drivinglicenseType = drivinglicenseType;
+	public void setDrivingLicenseType(String drivingLicenseType) {
+		this.drivingLicenseType = drivingLicenseType;
 	}
 	public Date getFirstDriveDate() {
 		return firstDriveDate;

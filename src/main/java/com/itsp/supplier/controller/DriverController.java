@@ -35,7 +35,7 @@ public class DriverController {
 			Driver driver = new Driver();
 			driver.setAge(driverDataSource.getAge());
 			driver.setCarrierId(driverDataSource.getCarrierId());
-			driver.setDrivinglicenseType(driverDataSource.getDrivinglicenseType());
+			driver.setDrivingLicenseType(driverDataSource.getDrivingLicenseType());
 			driver.setName(driverDataSource.getName());
 			String firstDriveDate = new SimpleDateFormat("yyyyMMdd").format(driverDataSource.getFirstDriveDate());
 			String currentDate = new SimpleDateFormat("yyyyMMdd").format(new Date());

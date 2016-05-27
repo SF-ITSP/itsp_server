@@ -12,8 +12,8 @@ import com.itsp.supplier.entity.VehicleData;
 public class VehicleService {
 	@Autowired
 	private VehicleDao vehicleDao;
-
-	public List<VehicleData> geVehicles() {
-		return vehicleDao.getVehicle();
+	
+	public List<VehicleData> geVehicles(long carrierId) {
+		return vehicleDao.getVehicle(carrierId);
 	}
 }
