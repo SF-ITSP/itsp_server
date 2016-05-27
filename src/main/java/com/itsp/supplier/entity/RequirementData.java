@@ -21,13 +21,13 @@ public class RequirementData {
 
 	@Column(name = "end_date")
 	private Date endDate;
-	
+
 	@Column(name = "vehicle_model")
-	private int vehicleModel;
+	private int vehicleType;
 
 	@Column(name = "capacity_weight")
 	private int capacityWeight;
-	
+
 	@Column(name = "carrier_id")
 	private long carrierId;
 
@@ -58,14 +58,6 @@ public class RequirementData {
 		this.endDate = endDate;
 	}
 
-	public int getVehicleModel() {
-		return vehicleModel;
-	}
-
-	public void setVehicleModel(int vehicleModel) {
-		this.vehicleModel = vehicleModel;
-	}
-
 	public int getCapacityWeight() {
 		return capacityWeight;
 	}
@@ -74,8 +66,16 @@ public class RequirementData {
 		this.capacityWeight = capacityWeight;
 	}
 
-	public String getVehicleModelName() {
-		return this.vehicleModel==0?"��س�":"����";
+	public String getVehicleTypeName() {
+		return this.vehicleType == 0 ? "冷藏车" : "其他";
+	}
+
+	public int getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(int vehicleType) {
+		this.vehicleType = vehicleType;
 	}
 
 }

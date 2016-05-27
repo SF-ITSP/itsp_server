@@ -24,10 +24,14 @@ public class RequirementController {
 	@Resource
 	private RequirementService requirementService;
 
+	@RequestMapping(value = "/{carrierId}", method = RequestMethod.GET)
+	public List<RequirementData> loadByCarrierId(@PathVariable(value = "carrierId") long carrierId) {
+		return requirementService.getByCarrierId(carrierId);
+	}
 
-	@RequestMapping(value = "/requirement")
-	public List<Requirement> getRequirements() {
-		List<RequirementData> requirementList = requirementService.getRequirements();
+	@RequestMapping(value = "/{carrierId}/{status}", method = RequestMethod.GET)
+	public List<Requirement> loadByCarrierIdAndStatus(@PathVariable(value = "carrierId") long carrierId, @PathVariable(value = "status") int status) {
+		List<RequirementData> requirementList = requirementService.getByCarrierIdAndStatus(carrierId, status);
 		List<Requirement> requirements = new ArrayList<Requirement>();
 
 		for (RequirementData requirement : requirementList) {
@@ -35,19 +39,9 @@ public class RequirementController {
 			tempRequirement.setStartDate(requirement.getStartDate());
 			tempRequirement.setEndDate(requirement.getEndDate());
 			tempRequirement.setCapacityWeight(requirement.getCapacityWeight());
-			tempRequirement.setVehicleModel(requirement.getVehicleModelName());
+			tempRequirement.setVehicle(requirement.getVehicleTypeName());
 			requirements.add(tempRequirement);
 		}
 		return requirements;
-	}
-
-	@RequestMapping(value = "/{carrierId}", method = RequestMethod.GET)
-	public List<RequirementData> loadByCarrierId(@PathVariable(value = "carrierId") long carrierId) {
-		return requirementService.getByCarrierId(carrierId);
-	}
-
-	@RequestMapping(value = "/{carrierId}/{status}", method = RequestMethod.GET)
-	public List<RequirementData> loadByCarrierIdAndStatus(@PathVariable(value = "carrierId") long carrierId, @PathVariable(value = "status") int status) {
-		return requirementService.getByCarrierIdAndStatus(carrierId, status);
 	}
 }

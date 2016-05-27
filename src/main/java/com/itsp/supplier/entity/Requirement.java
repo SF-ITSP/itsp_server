@@ -8,7 +8,7 @@ public class Requirement {
 
 	private Date endDate;
 	
-	private String vehicleModel;
+	private String vehicle;
 
 	private int capacityWeight;
 
@@ -29,14 +29,6 @@ public class Requirement {
 		this.endDate = endDate;
 	}
 
-	public String getVehicleModel() {
-		return vehicleModel;
-	}
-
-	public void setVehicleModel(String vehicleModel) {
-		this.vehicleModel = vehicleModel;
-	}
-
 	public int getCapacityWeight() {
 		return capacityWeight;
 	}
@@ -45,4 +37,12 @@ public class Requirement {
 		this.capacityWeight = capacityWeight;
 	}
 
+	public String getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(String vehicle) {
+		this.vehicle = vehicle;
+	}
+	
 }
