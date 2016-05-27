@@ -22,4 +22,11 @@ public class DriverService {
 		criteria.add(Restrictions.eq("carrierId", carrierId));
 		return driverDao.findByCriteria(criteria);
 	}
+	
+	public List<DriverDataSource> getByCarrierIdAndDriverId(long carrierId,long id) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(DriverDataSource.class);
+		criteria.add(Restrictions.eq("carrierId", carrierId));
+		criteria.add(Restrictions.eq("id", id));
+		return driverDao.findByCriteria(criteria);
+	}
 }
