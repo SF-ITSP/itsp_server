@@ -22,7 +22,7 @@ public class RequirementData {
 	@Column(name = "end_date")
 	private Date endDate;
 
-	@Column(name = "vehicle_model")
+	@Column(name = "vehicle_type")
 	private int vehicleType;
 
 	@Column(name = "capacity_weight")

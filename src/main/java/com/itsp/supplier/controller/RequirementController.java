@@ -39,7 +39,7 @@ public class RequirementController {
 			tempRequirement.setStartDate(requirement.getStartDate());
 			tempRequirement.setEndDate(requirement.getEndDate());
 			tempRequirement.setCapacityWeight(requirement.getCapacityWeight());
-			tempRequirement.setVehicle(requirement.getVehicleTypeName());
+			tempRequirement.setVehicleType(requirement.getVehicleTypeName());
 			requirements.add(tempRequirement);
 		}
 		return requirements;

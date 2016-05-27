@@ -17,10 +17,6 @@ public class RequirementService {
 	@Resource
 	private RequirementDao requirementDao;
 
-	public List<RequirementData> getRequirements() {
-		return requirementDao.getRequirements();
-	}
-
 	public List<RequirementData> getByCarrierId(long carrierId) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(RequirementData.class);
 		criteria.add(Restrictions.eq("carrierId", carrierId));
