@@ -46,7 +46,7 @@ public class TaskDataSource {
 	}
 
 	public String getLatestDepartureTimeString() {
-		return DateUtil.string(this.arriveTime, DateUtil.HH_MM);
+		return DateUtil.string(this.latestDepartureTime, DateUtil.HH_MM);
 	}
 
 	public int getId() {
