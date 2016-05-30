@@ -3,8 +3,7 @@ package com.itsp.supplier.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,7 @@ import com.itsp.supplier.service.RequirementService;
 @RequestMapping(value = "/requirement")
 public class RequirementController {
 
-	@Resource
+	@Autowired
 	private RequirementService requirementService;
 
 	@RequestMapping(value = "/{carrierId}", method = RequestMethod.GET)

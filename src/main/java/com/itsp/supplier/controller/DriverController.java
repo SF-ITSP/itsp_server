@@ -27,27 +27,25 @@ public class DriverController {
 	@Resource
 	private DriverService driverService;
 
-	@RequestMapping(value = "/{carrierId}", method = RequestMethod.GET)
-	public List<Driver> loadByCarrierId(@PathVariable(value = "carrierId") long carrierId) {
+	@RequestMapping(value = "/carrier/{carrierId}", method = RequestMethod.GET)
+	public List<Driver> findByCarrierId(@PathVariable(value = "carrierId") long carrierId) {
 		List<DriverDataSource> listDriver = driverService.getByCarrierId(carrierId);
 		List<Driver> drivers = new ArrayList<Driver>();
 		for (DriverDataSource driverDataSource : listDriver) {
-			getDriverList(drivers, driverDataSource);
+			Driver driver = getDriver(driverDataSource);
+			drivers.add(driver);
 		}
 		return drivers;
 	}
-	
-	@RequestMapping(value = "/{carrierId}/{id}", method = RequestMethod.GET)
-	public List<Driver> loadByCarrierIdAndDriverId(@PathVariable(value = "carrierId") long carrierId,@PathVariable(value = "id") long id) {
-		List<DriverDataSource> listDriver = driverService.getByCarrierId(carrierId);
-		List<Driver> drivers = new ArrayList<Driver>();
-		for (DriverDataSource driverDataSource : listDriver) {
-			getDriverList(drivers, driverDataSource);
-		}
-		return drivers;
+		
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public Driver findByDriverId(@PathVariable(value = "id") long id) {
+		DriverDataSource driverDataSource = driverService.getByDriverId(id);
+		Driver driver = getDriver(driverDataSource);
+		return driver;
 	}
 
-	private void getDriverList(List<Driver> drivers, DriverDataSource driverDataSource) {
+	private Driver getDriver(DriverDataSource driverDataSource) {
 		Driver driver = new Driver();
 		driver.setAge(driverDataSource.getAge());
 		driver.setCarrierId(driverDataSource.getCarrierId());
@@ -56,7 +54,7 @@ public class DriverController {
 		String firstDriveDate = new SimpleDateFormat("yyyyMMdd").format(driverDataSource.getFirstDriveDate());
 		String currentDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
 		driver.setDrivingExperience(DateUtil.getDateLength( firstDriveDate, currentDate));
-		drivers.add(driver);
+		return driver;
 	}
 
 }
