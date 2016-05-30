@@ -2,10 +2,9 @@ package com.itsp.supplier.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.itsp.supplier.dao.RequirementDao;
@@ -14,7 +13,7 @@ import com.itsp.supplier.entity.RequirementData;
 @Component
 public class RequirementService {
 
-	@Resource
+	@Autowired
 	private RequirementDao requirementDao;
 
 	public List<RequirementData> getByCarrierId(long carrierId) {

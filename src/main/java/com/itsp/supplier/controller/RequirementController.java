@@ -23,11 +23,6 @@ public class RequirementController {
 	@Autowired
 	private RequirementService requirementService;
 
-	@RequestMapping(value = "/{carrierId}", method = RequestMethod.GET)
-	public List<RequirementData> loadByCarrierId(@PathVariable(value = "carrierId") long carrierId) {
-		return requirementService.getByCarrierId(carrierId);
-	}
-
 	@RequestMapping(value = "/{carrierId}/{status}", method = RequestMethod.GET)
 	public List<Requirement> loadByCarrierIdAndStatus(@PathVariable(value = "carrierId") long carrierId, @PathVariable(value = "status") int status) {
 		List<RequirementData> requirementList = requirementService.getByCarrierIdAndStatus(carrierId, status);
