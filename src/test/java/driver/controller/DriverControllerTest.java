@@ -51,13 +51,13 @@ public class DriverControllerTest extends ItspJUnit4ClassRunner {
 				"INSERT INTO TT_DRIVER(id,carrier_id,driving_license_Type,DATE_BIRTH,first_drive_date,age,name,code)"
 						+ "values(-2,888,'C1',date'2016-01-01',date'2016-01-01',30,'王五','330356')");
 		// when
-		Driver driver = driverController.findByDriverId(-2);
+		List<Driver> driver = driverController.findByDriverId(-2);
 		Assert.assertNotNull(driver);
-		Assert.assertEquals(888, driver.getCarrierId());
-		Assert.assertEquals("C1", driver.getDrivingLicenseType());
-		Assert.assertEquals(0, driver.getDrivingExperience());
-		Assert.assertEquals(30, driver.getAge());
-		Assert.assertEquals("王五", driver.getName());
+		Assert.assertEquals(888, driver.get(0).getCarrierId());
+		Assert.assertEquals("C1", driver.get(0).getDrivingLicenseType());
+		Assert.assertEquals(0, driver.get(0).getDrivingExperience());
+		Assert.assertEquals(30, driver.get(0).getAge());
+		Assert.assertEquals("王五", driver.get(0).getName());
 
 	}
 
