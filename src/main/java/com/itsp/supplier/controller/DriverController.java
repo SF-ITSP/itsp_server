@@ -32,20 +32,20 @@ public class DriverController {
 		List<DriverDataSource> listDriver = driverService.getByCarrierId(carrierId);
 		List<Driver> drivers = new ArrayList<Driver>();
 		for (DriverDataSource driverDataSource : listDriver) {
-			Driver driver = getDriver(driverDataSource);
-			drivers.add(driver);
+			getDriverList(drivers,driverDataSource);
 		}
 		return drivers;
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Driver findByDriverId(@PathVariable(value = "id") long id) {
-		DriverDataSource driverDataSource = driverService.getByDriverId(id);
-		Driver driver = getDriver(driverDataSource);
-		return driver;
+	public List<Driver> findByDriverId(@PathVariable(value = "id") long id) {
+		DriverDataSource listDriver = driverService.getByDriverId(id);
+		List<Driver> drivers = new ArrayList<Driver>();
+		getDriverList(drivers, listDriver);
+		return drivers;
 	}
 
-	private Driver getDriver(DriverDataSource driverDataSource) {
+	private void getDriverList(List<Driver> drivers, DriverDataSource driverDataSource) {
 		Driver driver = new Driver();
 		driver.setAge(driverDataSource.getAge());
 		driver.setCarrierId(driverDataSource.getCarrierId());
@@ -54,7 +54,7 @@ public class DriverController {
 		String firstDriveDate = new SimpleDateFormat("yyyyMMdd").format(driverDataSource.getFirstDriveDate());
 		String currentDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
 		driver.setDrivingExperience(DateUtil.getDateLength( firstDriveDate, currentDate));
-		return driver;
+		drivers.add(driver);
 	}
 
 }
