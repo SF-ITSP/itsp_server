@@ -24,8 +24,6 @@ public class DriverService {
 	}
 	
 	public DriverDataSource getByDriverId(long id) {
-//		DetachedCriteria criteria = DetachedCriteria.forClass(DriverDataSource.class);
-//		criteria.add(Restrictions.eq("id", id));
 		return driverDao.load(id);
 	}
 }
