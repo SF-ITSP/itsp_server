@@ -13,6 +13,7 @@ import com.itsp.common.dao.JdbcDao;
 import com.itsp.supplier.entity.Task;
 
 public class TaskControllerTest extends ItspJUnit4ClassRunner {
+	
 	@Autowired
 	private TaskController taskController;
 	@Autowired
@@ -22,12 +23,11 @@ public class TaskControllerTest extends ItspJUnit4ClassRunner {
 	@Rollback
 	@Transactional
 	public void should_find_all() {
-
-		// give
+		// given
 		jdbcDao.getJdbcTemplate().execute("delete from TT_ITSP_TASK");
 		jdbcDao.getJdbcTemplate()
-				.execute("insert into TT_ITSP_TASK(id,address,operation,arrive_time,latest_departure_time,waiting_time)"
-						+ "values (-1,'广州中转场','1',timestamp'2016-01-01 12:13',timestamp'2016-01-01 09:56',20)");
+				.execute("INSERT INTO TT_ITSP_TASK(id,address,operation,arrive_time,latest_departure_time,waiting_time) "
+						+ "VALUES (-1,'广州中转场','1', TIMESTAMP'2016-01-01 12:13', TIMESTAMP'2016-01-01 09:56',20)");
 		//when
 		List<Task> tasks = taskController.getTasks();
 		Task task = tasks.get(0);
@@ -38,7 +38,5 @@ public class TaskControllerTest extends ItspJUnit4ClassRunner {
 		Assert.assertEquals("12:13", task.getArriveTime());
 		Assert.assertEquals("09:56", task.getLatestDepartureTime());
 		Assert.assertEquals(20, task.getWaitingTime());
-
 	}
-
 }

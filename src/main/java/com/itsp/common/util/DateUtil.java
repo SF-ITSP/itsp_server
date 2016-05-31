@@ -1,7 +1,6 @@
 package com.itsp.common.util;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
@@ -40,19 +39,8 @@ public class DateUtil {
 		return date;
 	}
 
-	public static int getDateLength(String fromDate, String toDate) {
-		Calendar c1 = getCal(fromDate);
-		Calendar c2 = getCal(toDate);
-		int[] p1 = { c1.get(Calendar.YEAR), c1.get(Calendar.MONTH), c1.get(Calendar.DAY_OF_MONTH) };
-		int[] p2 = { c2.get(Calendar.YEAR), c2.get(Calendar.MONTH), c2.get(Calendar.DAY_OF_MONTH) };
-		return p2[0] - p1[0];
-	}
-
-	public static Calendar getCal(String date) {
-		Calendar cal = Calendar.getInstance();
-		cal.clear();
-		cal.set(Integer.parseInt(date.substring(0, 4)), Integer.parseInt(date.substring(4, 6)) - 1,
-				Integer.parseInt(date.substring(6, 8)));
-		return cal;
+	public static int DifferenceBetweenDate(Date date){
+		long difference = new Date().getTime() - date.getTime();
+		return (int) (difference/1000/60/60/24/365);
 	}
 }

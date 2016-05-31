@@ -23,7 +23,7 @@ public class DriverControllerTest extends ItspJUnit4ClassRunner {
 	@Test
 	@Rollback
 	@Transactional
-	public void should_be_find_by_carrier_id() {
+	public void should_be_found_by_carrier_id() {
 		// give
 		jdbcDao.getJdbcTemplate().execute("delete from TT_DRIVER  where carrier_id =888");
 		jdbcDao.getJdbcTemplate().execute(
@@ -44,20 +44,20 @@ public class DriverControllerTest extends ItspJUnit4ClassRunner {
 	@Test
 	@Rollback
 	@Transactional
-	public void should_be_find_by_driver_id() {
+	public void should_be_found_by_driver_id() {
 		// give
 		jdbcDao.getJdbcTemplate().execute("delete from TT_DRIVER  where id =-2");
 		jdbcDao.getJdbcTemplate().execute(
 				"INSERT INTO TT_DRIVER(id,carrier_id,driving_license_Type,DATE_BIRTH,first_drive_date,age,name,code)"
 						+ "values(-2,888,'C1',date'2016-01-01',date'2016-01-01',30,'王五','330356')");
 		// when
-		List<Driver> driver = driverController.findByDriverId(-2);
+		Driver driver = driverController.findByDriverId(-2);
 		Assert.assertNotNull(driver);
-		Assert.assertEquals(888, driver.get(0).getCarrierId());
-		Assert.assertEquals("C1", driver.get(0).getDrivingLicenseType());
-		Assert.assertEquals(0, driver.get(0).getDrivingExperience());
-		Assert.assertEquals(30, driver.get(0).getAge());
-		Assert.assertEquals("王五", driver.get(0).getName());
+		Assert.assertEquals(888, driver.getCarrierId());
+		Assert.assertEquals("C1", driver.getDrivingLicenseType());
+		Assert.assertEquals(0, driver.getDrivingExperience());
+		Assert.assertEquals(30, driver.getAge());
+		Assert.assertEquals("王五", driver.getName());
 
 	}
 

@@ -7,6 +7,7 @@ public class Driver {
 	private String name;
 	private long carrierId;
 	private int drivingExperience;
+	private long id;
 	
 	public int getAge() {
 		return age;
@@ -37,6 +38,12 @@ public class Driver {
 	}
 	public void setDrivingExperience(int drivingExperience) {
 		this.drivingExperience = drivingExperience;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 }
