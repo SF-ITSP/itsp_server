@@ -1,7 +1,7 @@
 package com.itsp.supplier.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,19 +17,18 @@ public class VehicleService {
 	
 	public List<Vehicle> geVehicles(long carrierId) {
 		List<VehicleData> vehicleList = vehicleDao.getVehicle(carrierId);
-		List<Vehicle> vehicles = new ArrayList<Vehicle>();
-		for (VehicleData vehicle : vehicleList) {
-			createVehicle(vehicles, vehicle);
-		}
-		return vehicles;
+		
+		return vehicleList.stream().map(vehicle -> createVehicle(vehicle)).collect(Collectors.toList());
 	}
 	
-	private void createVehicle(List<Vehicle> vehicles, VehicleData vehicle) {
+	private Vehicle createVehicle(VehicleData vehicle) {
 		Vehicle newVehicle = new Vehicle();
+		
 		newVehicle.setVehicleNumber(vehicle.getVehicleNumber());
 		newVehicle.setType(vehicle.getTypeName());
 		newVehicle.setWeight(vehicle.getWeight());
 		newVehicle.setCarrierId(vehicle.getCarrierId());
-		vehicles.add(newVehicle);
+		
+		return newVehicle;
 	}
 }

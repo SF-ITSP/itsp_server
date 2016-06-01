@@ -1,7 +1,7 @@
 package com.itsp.supplier.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,19 +22,18 @@ public class RequirementService {
 
 	public List<Requirement> getByCarrierIdAndStatus(long carrierId, int status) {
 		List<RequirementData> requirementList = requirementDao.getByCarrierIdAndStatus(carrierId, status);
-		List<Requirement> requirements = new ArrayList<Requirement>();
-		for (RequirementData requirement : requirementList) {
-			requirements.add(createRequirement(requirement));
-		}
-		return requirements;
+		
+		return requirementList.stream().map(requirement -> createRequirement(requirement)).collect(Collectors.toList());	
 	}
 
 	private Requirement createRequirement(RequirementData requirement) {
 		Requirement tempRequirement= new Requirement();
+		
 		tempRequirement.setStartDate(requirement.getStartDate());
 		tempRequirement.setEndDate(requirement.getEndDate());
 		tempRequirement.setCapacityWeight(requirement.getCapacityWeight());
 		tempRequirement.setVehicleType(requirement.getVehicleTypeName());
+		
 		return tempRequirement;
 	}
 }

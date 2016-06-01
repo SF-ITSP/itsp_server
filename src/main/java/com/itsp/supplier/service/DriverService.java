@@ -1,7 +1,7 @@
 package com.itsp.supplier.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
@@ -20,11 +20,8 @@ public class DriverService {
 
 	public List<Driver> getByCarrierId(long carrierId) {
 		List<DriverDataSource> listDriver = driverDao.getByCarrierId(carrierId);
-		List<Driver> drivers = new ArrayList<Driver>();
-		listDriver.stream().forEach((DriverDataSource driverDataSource) -> {
-			drivers.add(createDriver(driverDataSource));
-		});
-		return drivers;
+		
+		return listDriver.stream().map(driverDataSource -> createDriver(driverDataSource)).collect(Collectors.toList());	
 	}
 
 	public Driver getByDriverId(long id) {
@@ -34,12 +31,14 @@ public class DriverService {
 
 	private Driver createDriver(DriverDataSource driverDataSource) {
 		Driver driver = new Driver();
+		
 		driver.setAge(driverDataSource.getAge());
 		driver.setCarrierId(driverDataSource.getCarrierId());
 		driver.setId(driverDataSource.getId());
 		driver.setDrivingLicenseType(driverDataSource.getDrivingLicenseType());
 		driver.setName(driverDataSource.getName());
 		driver.setDrivingExperience(DateUtil.DifferenceBetweenDate(driverDataSource.getFirstDriveDate()));
+		
 		return driver;
 	}
 }

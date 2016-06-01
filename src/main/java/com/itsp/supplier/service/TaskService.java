@@ -1,7 +1,7 @@
 package com.itsp.supplier.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,21 +17,19 @@ public class TaskService {
 
 	public List<Task> getTasks() {
 		List<TaskDataSource> taskDataSources = taskDao.getTasks();
-		List<Task> taskList = new ArrayList<Task>();
-		for (TaskDataSource taskDataSource : taskDataSources) {
-			Task task = createTask(taskDataSource);
-			taskList.add(task);
-		}
-		return taskList;
+		
+		return taskDataSources.stream().map(taskDataSource -> createTask(taskDataSource)).collect(Collectors.toList());
 	}
 
 	private Task createTask(TaskDataSource taskDataSource) {
 		Task task = new Task();
+		
 		task.setAddress(taskDataSource.getAddress());
 		task.setOperation(taskDataSource.getOperationString());
 		task.setArriveTime(taskDataSource.getArriveTimeString());
 		task.setLatestDepartureTime(taskDataSource.getLatestDepartureTimeString());
 		task.setWaitingTime(taskDataSource.getWaitingTime());
+		
 		return task;
 	}
 }
