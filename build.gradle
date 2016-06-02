@@ -54,3 +54,7 @@ compileTestJava {
 test {
 	exclude '**/*ItspJUnit4ClassRunner.class'
 }
+
+cobertura {
+    coverageFormats = ['html', 'xml']
+}
