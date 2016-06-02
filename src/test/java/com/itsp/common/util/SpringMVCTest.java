@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import com.itsp.common.ItspJUnit4ClassRunner;
 
-public class SpringMVCTest extends ItspJUnit4ClassRunner{
-    @Test
-	public void InitMVCTest(){
-    	//³õÊ¼»¯ÔËĞĞ»·¾³£¬ÒªÇó²»±¨´í
-    	System.out.println("init success!");
-    }
+public class SpringMVCTest extends ItspJUnit4ClassRunner {
+	@Test
+	public void InitMVCTest() {
+		// åˆå§‹åŒ–è¿è¡Œç¯å¢ƒï¼Œè¦æ±‚ä¸æŠ¥é”™
+		System.out.println("init success!");
+	}
 }
