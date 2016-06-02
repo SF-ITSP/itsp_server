@@ -14,14 +14,12 @@ public class IOCTest extends ItspJUnit4ClassRunner {
 
 	@Test
 	public void APPLICATION_CONTEXT_IS_RUNNING() {
-		Assert.assertNotNull("ÉÏÏÂÎÄ¼Ä´æ¶ÔÏó²»ÄÜÎª¿Õ", applicationContext);
-		Assert.assertNotNull("ÉÏÏÂÎÄ²»ÄÜÎª¿Õ",
-				applicationContext.getApplicationContext());
+		Assert.assertNotNull("ä¸Šä¸‹æ–‡å¯„å­˜å¯¹è±¡ä¸èƒ½ä¸ºç©º", applicationContext);
+		Assert.assertNotNull("ä¸Šä¸‹æ–‡ä¸èƒ½ä¸ºç©º", applicationContext.getApplicationContext());
 	}
+
 	@Test
 	public void BEAN_IS_INIT() {
-		Assert.assertNotNull("bean ºóÖÃÊÂ¼şÎª³É¹¦³õÊ¼»¯", applicationContext
-				.getApplicationContext()
-				.getBean(SessionFactionAutowiring.class));
+		Assert.assertNotNull("bean åç½®äº‹ä»¶ä¸ºæˆåŠŸåˆå§‹åŒ–", applicationContext.getApplicationContext().getBean(SessionFactionAutowiring.class));
 	}
 }
