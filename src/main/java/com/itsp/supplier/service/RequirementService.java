@@ -29,11 +29,19 @@ public class RequirementService {
 	private Requirement createRequirement(RequirementData requirement) {
 		Requirement tempRequirement= new Requirement();
 		
+		tempRequirement.setId(requirement.getId());
 		tempRequirement.setStartDate(requirement.getStartDate());
 		tempRequirement.setEndDate(requirement.getEndDate());
 		tempRequirement.setCapacityWeight(requirement.getCapacityWeight());
 		tempRequirement.setVehicleType(requirement.getVehicleTypeName());
 		
 		return tempRequirement;
+	}
+	
+	public void updateRequirementStatus(long requirementId) {
+		RequirementData oldRequirementData = requirementDao.load(requirementId);
+		oldRequirementData.setStatus(0);
+		
+		requirementDao.update(oldRequirementData);
 	}
 }

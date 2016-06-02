@@ -78,4 +78,11 @@ public class RequirementData {
 		this.vehicleType = vehicleType;
 	}
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 }

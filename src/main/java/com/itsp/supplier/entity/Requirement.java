@@ -3,6 +3,7 @@ package com.itsp.supplier.entity;
 import java.util.Date;
 
 public class Requirement {
+	private long id;
 
 	private Date startDate;
 
@@ -12,6 +13,13 @@ public class Requirement {
 
 	private int capacityWeight;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public Date getStartDate() {
 		return startDate;

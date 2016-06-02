@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.itsp.supplier.entity.Requirement;
 import com.itsp.supplier.service.RequirementService;
 
-
 @Scope("prototype")
 @Controller
 @RequestMapping(value = "/requirement")
@@ -22,7 +21,13 @@ public class RequirementController {
 	private RequirementService requirementService;
 
 	@RequestMapping(value = "/{carrierId}/{status}", method = RequestMethod.GET)
-	public List<Requirement> loadByCarrierIdAndStatus(@PathVariable(value = "carrierId") long carrierId, @PathVariable(value = "status") int status) {
+	public List<Requirement> loadByCarrierIdAndStatus(@PathVariable(value = "carrierId") long carrierId,
+			@PathVariable(value = "status") int status) {
 		return requirementService.getByCarrierIdAndStatus(carrierId, status);
+	}
+
+	@RequestMapping(value = "/{requirementId}", method = RequestMethod.GET)
+	public void updateRequirementSatatus(@PathVariable(value = "requirementId") long requirementId) {
+		requirementService.updateRequirementStatus(requirementId);
 	}
 }
