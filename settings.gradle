@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'Itsp_server2'
+rootProject.name = 'Itsp_server'
