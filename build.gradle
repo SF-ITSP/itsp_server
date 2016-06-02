@@ -44,7 +44,7 @@ dependencies {
 compileTestJava {
 	doLast{
 		copy{
-			from 'src/main/java/'
+			from 'src/main/webapp/WEB-INF'
 			include 'spring-mvc.xml'
 			into 'build/classes/test'
 		}
