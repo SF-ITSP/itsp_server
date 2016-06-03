@@ -44,7 +44,7 @@ dependencies {
 compileTestJava {
 	doLast{
 		copy{
-			from 'src/main/webapp/WEB-INF'
+			from 'src/main/java'
 			include 'spring-mvc.xml'
 			into 'build/classes/test'
 		}
@@ -57,4 +57,11 @@ test {
 
 cobertura {
     coverageFormats = ['html', 'xml']
+}
+
+war{
+    from("src/main/java") {
+        include 'spring-mvc.xml'
+        into("WEB-INF")
+    }
 }
